@@ -21,6 +21,8 @@ const V_COLLISION_LAYER = "layer"
 const V_COLLISION_MASK = "mask"
 
 const V_CAST_SHADOW = "cast_shadow"
+const V_GI_MODE = "gi_mode"
+const V_LIGHTMAP_TEXEL_SCALE = "lightmap_texel_scale"
 
 const V_MATERIAL_UNSHADED = "shade_mode"
 
@@ -129,7 +131,9 @@ func iterate_node_geometry(node3d: Node3D, data: Dictionary) -> void:
 	if not node3d is GeometryInstance3D: return
 	var geometry := node3d as GeometryInstance3D
 	
-	geometry.cast_shadow = data.get(V_CAST_SHADOW, 1)
+	geometry.cast_shadow             = data.get(V_CAST_SHADOW, GeometryInstance3D.SHADOW_CASTING_SETTING_ON)
+	geometry.gi_mode                 = data.get(V_GI_MODE, GeometryInstance3D.GI_MODE_STATIC)
+	geometry.gi_lightmap_texel_scale = data.get(V_LIGHTMAP_TEXEL_SCALE, 1.0)
 
 
 func iterate_node_visual(node3d: Node3D, layers: Array) -> void:
