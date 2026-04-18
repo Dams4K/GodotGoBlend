@@ -97,7 +97,7 @@ func _name_collision(node: CollisionObject3D, collision_data: Dictionary, parent
 	node.name = "{0}{1}".format([parent_name, class_small_name if collision_name.is_empty() else collision_name])
 
 func _create_collision_object(collision_data: Dictionary, parent: Node, mesh: Mesh) -> CollisionObject3D:
-	var collision_type: int                  = collision_data.get(V_COLLISION_TYPE, 0)
+	var collision_type: int                  = collision_data.get(V_COLLISION_TYPE, 1)
 	var collision_shape_type: CollisionShape = collision_data.get(V_COLLISION_SHAPE, 0)
 	var _collision_color_arr: Array          = collision_data.get(V_COLLISION_COLOR, [0.0, 0.319, 0.448, 0.42])
 	var collision_color: Color               = Color(_collision_color_arr[0], _collision_color_arr[1], _collision_color_arr[2], _collision_color_arr[3])
