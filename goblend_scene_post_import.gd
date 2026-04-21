@@ -39,6 +39,9 @@ enum CollisionShape {
 	BOUNDARIES
 }
 
+func _get_goblend(node: Node) -> Dictionary:
+	return node.get_meta(V_EXTRAS, {}).get(V_METADATA_NAME, {})
+
 func _post_import(scene: Node) -> Object:
 	iterate(scene)
 	return scene
